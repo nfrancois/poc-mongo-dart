@@ -1,4 +1,3 @@
-//import 'package:objectory/objectory.dart';
 import 'package:objectory/objectory_console.dart';
 import 'dart:io';
 
@@ -30,7 +29,7 @@ _serve(HttpRequest request, HttpResponse response){
   
 }
 
-_handleResponse(HttpResponse response, List builds){
+_handleResponse(HttpResponse response, List<PersistentObject> builds){
   response.outputStream..writeString(builds.toString())
                        ..close();  
 }
@@ -70,11 +69,11 @@ class BuildDao {
 
   }
   
-  Future<List<Build>> all(){
+  Future<List<PersistentObject>> all(){
     return objectory.find(_where);
   }
   
-  Future<List<Build>> findByJob(String jobName){
+  Future<List<PersistentObject>> findByJob(String jobName){
     return objectory.find(_where.eq(Build.JOB_PARAM, jobName));
   }
   
