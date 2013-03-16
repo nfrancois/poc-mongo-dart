@@ -7,6 +7,17 @@ main(){
   });
 }
 
+class Thing extends PersistentObject {
+  
+  Thing();
+  
+  int get name => getProperty("name");
+  set name(int value) => setProperty("name", value);
+  
+  String toString() => "Thing[Thing=$name]";
+  
+}
+
 _registerClasses(){
-  //  objectory.registerClass("Thing", () => new Thing()); 
+  objectory.registerClass("Thing", () => new Thing()); 
 }
