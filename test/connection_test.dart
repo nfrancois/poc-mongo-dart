@@ -4,6 +4,7 @@ import 'package:unittest/unittest.dart';
 main(){
   test("Connection test",() {
     objectory = new ObjectoryDirectConnectionImpl("mongodb://localhost", _registerClasses, false);
+    objectory.initDomainModel();   
   });
 }
 
